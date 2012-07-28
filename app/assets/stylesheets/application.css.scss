@@ -17,6 +17,12 @@ body {
 	padding-top: 60px;
 }
 
+.navbar .brand {
+	font-family: 'Codystar', cursive;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+
 h1 {
 	font-size: 36px;
 }
@@ -43,17 +49,13 @@ ul {
 
 li.concert-thumbnail {
 	float: left;
-	box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 2px 3px rgba(34, 25, 25, 0.5);
 	margin: 0px 12px 12px 0px;
 	
 }
 
 li.concert-thumbnail img {
 	width: 222px;
-}
-
-.container {
-
 }
 
 .city {
@@ -98,12 +100,48 @@ li.concert-thumbnail img {
 .modal {
 	width: 810px;
 	background: black;
+	border: none;
 }
 
-.modal, .modal-body {
-	height: 800px;
+.modal-body {
+	margin: 0;
+	padding-bottom: 0;
 	max-height: none;
 	overflow-y: hidden;
+	border: none;
+	height: 630px;
+}
+
+.modal img {
+	margin-left: 88px;
+}
+
+.modal-header {
+	border-bottom-color: #555;
+}
+
+.modal-header h3 {
+	color: #BBBDC0;
+	font-weight: normal;
+	font-size: 24px;
+	padding: 6px 15px;
+}
+
+.modal-header .close {
+	border: none;
+	background: black;
+	color: white;
+}
+
+.modal-footer {
+	padding: 15px;
+	border-top: none;
+	background: black;
+}
+
+.carousel {
+	border: none;
+	margin-bottom: 12px;
 }
 
 .carousel-inner {
@@ -111,31 +149,15 @@ li.concert-thumbnail img {
 	overflow-y: hidden;
 }
 
-.modal img {
-	margin-left: 88px;
+.carousel-control, .left, .right {
+	top: 50%;
 }
 
-.modal-header h3 {
-	color: white;
-	font-weight: normal;
-	font-size: 24px;
-}
-
-.modal-header .close {
-	border: none;
-	background: white;
-}
-
-.carousel .item {
+.carousel .item, .carousel .active {
 	-webkit-transition: none;
 	-moz-transition: none;
 	-o-transition: none;
 	transition: none;
-}
-
-.carousel-footer {
-	margin-top: 8px;
-	width: 612px;
 }
 
 .profile-pic img {
@@ -144,7 +166,12 @@ li.concert-thumbnail img {
 }
 
 .comments {
-	float: right;
-	width: 450px;
-	margin-left: 8px;
+	float: left;
+	text-align: left;
+	width: 550px;
+	margin-left: 12px;
+	color: white;
+	font-size: 13px;
+	line-height: 1.5em;
+	padding-right: 0px;
 }
