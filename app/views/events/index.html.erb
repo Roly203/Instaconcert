@@ -1,20 +1,40 @@
-<div class="row concerts">
-  <div class="concert-title">
-    <div class="city float-left">
-      <h1>Chicago</h1>
-    </div>
-    
-    <div class="concert-image">
-      <%= link_to image_tag("http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "/#", :class => "concert-image" %>
-    </div>
-    
-    <div class="event-date float-right">
-      <h2>June 10, 2012</h2>
-    </div>
-    
-    <div class="venue float-right">
-      <h2>First Midwest Bank Ampitheater</h2>
+<div class="row concert">
+  <div class="city float-left">
+    <div class="city-name">
+      <h1>San Francisco</h1>
     </div>
   </div>
+    
+  <div class="concert-image">
+    <%= link_to image_tag("http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "/#", :class => "concert-image" %>
+  </div>
+      
+  <div class="event-date float-right">
+    <div class="event-description">
+      <h2><span class="date">June 10, 2012</span><br />
+      <span class="venue">First Midwest Bank Ampitheater</span></h2>
+    </div>
+  </div>
+</div>
+
+<div class="row concert">
+  <div class="event-date float-left">
+    <div class="event-description">
+      <h2><span class="date">June 10, 2012</span><br />
+      <span class="venue">First Midwest Bank Ampitheater</span></h2>
+    </div>
+  </div>
+    
+  <div class="concert-image">
+    <%= link_to image_tag("http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "/#", :class => "concert-image" %>
+  </div>
   
+  <div class="city float-right">
+     <div class="city-name">
+       <h1>Chicago</h1>
+     </div>
+   </div>
+</div>
+
+
 </div>

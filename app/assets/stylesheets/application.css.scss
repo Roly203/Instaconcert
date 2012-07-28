@@ -59,9 +59,30 @@ li.concert-thumbnail img {
 }
 
 .city {
-	width: 317px;
+	width: 350px;
+	padding: 0px 0px;
 	height: 200px;
-	padding: 83px 0px;
+	position: relative;
+}
+
+.city-name {
+	position: absolute;
+	padding: 12px 0;
+	height: 176px;
+	width: 350px;
+	display: table;
+}
+
+.city-name h1 {
+	padding: 0px;
+	font-size: 72px;
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 1.0em;
+}
+
+.concert {
+	padding-bottom: 20px;
 }
 
 .concert-image {
@@ -73,28 +94,43 @@ li.concert-thumbnail img {
 }
 
 .event-date {
+	position: relative;
 	float: left;
-	width: 399px;
-	height: 36px;
-	padding: 32px 0px;
+	height: 176px;
+	width: 350px;
+	padding: 12px 0px;	
 }
 
-.venue {
-	width: 399px;
-	height: 36px;
-	padding: 32px 0px;
+.event-description {
+	position: absolute;
+	display: table;
+	height: 176px;
 }
-	
+
+.event-date h2 {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 40px;
+	line-height: 1.25em;
+}
+
+span.date {
+}
+
+span.venue {
+
+}
+
 .float-left {
 	float: left;
 	text-align: right;
-	padding-right: 12px;
+	padding-right: 20px;
 }
 	
 .float-right {
 	float: right;
 	text-align: left;
-	padding-left: 12px;
+	padding-left: 20px;
 }
 
 .modal {
