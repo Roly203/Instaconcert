@@ -5,12 +5,13 @@
 <p>
   <b>Name:</b>
   <%= @event.name %>
-  <%= @tidy_image_array %>
-  <%= JSON.pretty_generate (@instagram_image_array) %>
+
   <ul>
-  <% @instagram_image_array.each_with_index do |item,i| %>
-    <li><img src="<%= @instagram_image_array[i]["images"]["standard_resolution"]["url"] %>"></img></li>
+  
+  <% @event.images.each do |i| %>
+    <li><img src="<%= i.img_standard_url %>"></img></li>
   <% end %>
+    
   </ul>
   
 </p>
