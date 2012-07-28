@@ -8,7 +8,28 @@
 </head>
 <body>
 
-<%= yield %>
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">
+        Instaconcert
+      </a>
+      
+      <ul class="nav">
+        <li class="active">
+          <a href="#">Radiohead</a>
+        </li>
+        <li><a href="#">The Black Keys</a></li>
+        <li><a href="#">Jack White</a></li>
+      </ul>
+      
+    </div>
+  </div>
+</div>
+
+<div class="container main-container">
+  <%= yield %>
+</div>
 
 </body>
 </html>

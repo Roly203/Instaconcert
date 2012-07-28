@@ -1,21 +1,20 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @events.each do |event| %>
-  <tr>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>
+<div class="row concerts">
+  <div class="concert-title">
+    <div class="city float-left">
+      <h1>Chicago</h1>
+    </div>
+    
+    <div class="concert-image">
+      <%= link_to image_tag("http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "/#", :class => "concert-image" %>
+    </div>
+    
+    <div class="event-date float-right">
+      <h2>June 10, 2012</h2>
+    </div>
+    
+    <div class="venue float-right">
+      <h2>First Midwest Bank Ampitheater</h2>
+    </div>
+  </div>
+  
+</div>
