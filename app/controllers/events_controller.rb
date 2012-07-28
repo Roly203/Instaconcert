@@ -14,8 +14,38 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    
+    interval_count = 4
+  
+    interval = ((@event.max_timestamp - @event.min_timestamp) / interval_count )
+  
     instagram = Instaconcert::Instagram.new(:client_id => "46bd5797cd3d4ea685cbe3372510cf0c")
-    @instagram_hash = instagram.media_search(@event.lat, @event.long, @event.max_timestamp, @event.min_timestamp, @event.distance)
+    
+    @instagram_data_array = Array.new
+    instagram_hash = Array.new(interval_count)
+    instagram_hash.each_with_index do |item, i| 
+      item = instagram.media_search(@event.lat, @event.long, @event.max_timestamp - interval*(interval_count-(i+1)), @event.min_timestamp + interval*(i), @event.distance)
+      #write something to check response codes later
+      if item["data"] != nil then @instagram_data_array += item["data"]  
+      #what in the ever living fuck
+      
+    end
+  end
+    
+      
+    
+    
+    #@instagram_loc_id = instagram.location_search(@event.lat, @event.long, @event.distance)["data"][0]["id"].to_s
+ 
+ 
+   #@instagram_loc_id = instagram.location_search_4sq_id("40dcbc80f964a52081011fe3", @event.distance)["data"][0]["id"].to_s
+ 
+    
+    
+    # hardcoded location_id to Wrigley Field 
+    #@instagram_hash = instagram.location_recent(@instagram_loc_id, @event.max_timestamp, @event.min_timestamp)
+
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }

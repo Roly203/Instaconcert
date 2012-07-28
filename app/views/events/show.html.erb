@@ -5,10 +5,11 @@
 <p>
   <b>Name:</b>
   <%= @event.name %>
-  <%= JSON.pretty_generate (@instagram_hash) %>
+  <%= @instagram_loc_id %>
+  <%= JSON.pretty_generate (@instagram_data_array) %>
   <ul>
-  <% @instagram_hash["data"].each_with_index do |item,i| %>
-    <li><img src="<%= @instagram_hash["data"][i]["images"]["standard_resolution"]["url"] %>"></img></li>
+  <% @instagram_data_array.each_with_index do |item,i| %>
+    <li><img src="<%= @instagram_data_array[i]["images"]["standard_resolution"]["url"] %>"></img></li>
   <% end %>
   </ul>
 
