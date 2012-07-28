@@ -7,9 +7,11 @@
 </script>
 
 <ul>
+  <% @event.images.each do |i| %>
   <li class="concert-thumbnail">
-  <%= link_to (image_tag "http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "#myModal", :data => {:toggle => "modal"} %>
+    <%= link_to (image_tag i.img_standard_url), "#myModal", :data => {:toggle => "modal"} %>
   </li>
+  <% end %>
 </ul>
 
 <div class="modal hide" id="myModal">
@@ -23,20 +25,21 @@
     <div id="myCarousel" class="carousel slide">
       <!-- Carousel items -->
       <div class="carousel-inner">
+
         <div class="active item">
           <%= link_to image_tag "http://s3.amazonaws.com/static.fab.com/inspiration/61437-612x612-1.png" %>
         </div>
+
         <div class="item">
         <%= link_to image_tag "http://blogs-images.forbes.com/mindylubber/files/2011/09/starbucks-coffee-cup.jpg" %>
         </div>
-        <div class="item">
-          <%= link_to image_tag "http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg" %>
-        </div>
+
       </div>
       <!-- Carousel nav -->
       <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
       <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
     </div>    
+
   </div>
   <div class="modal-footer">
     <div class="profile-pic">

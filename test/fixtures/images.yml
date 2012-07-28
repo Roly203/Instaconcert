@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  instagram_id: MyString
+  lat: 1.5
+  long: 1.5
+  img_lowres_url: MyString
+  img_thumb_url: MyString
+  img_standard_url: MyString
+  caption_text: MyString
+  caption_time: 2012-07-28 10:52:53
+  like_count: 1
+  img_time: 2012-07-28 10:52:53
+  instagram_link_url: MyString
+
+two:
+  instagram_id: MyString
+  lat: 1.5
+  long: 1.5
+  img_lowres_url: MyString
+  img_thumb_url: MyString
+  img_standard_url: MyString
+  caption_text: MyString
+  caption_time: 2012-07-28 10:52:53
+  like_count: 1
+  img_time: 2012-07-28 10:52:53
+  instagram_link_url: MyString

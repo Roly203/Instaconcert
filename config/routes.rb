@@ -1,6 +1,8 @@
 Instaconcert::Application.routes.draw do
   resources :events
 
+  resources :event_requests
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

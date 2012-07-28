@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  lat: 1.5
+  long: 1.5
+  min_timestamp: 1
+  max_timestamp: 1
+  distance: 1
+
+two:
+  lat: 1.5
+  long: 1.5
+  min_timestamp: 1
+  max_timestamp: 1
+  distance: 1

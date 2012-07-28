@@ -5,3 +5,5 @@
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
 Instaconcert::Application.config.secret_token = '269d6cc3b651e694a0288450fadb32005130e3c03360e2cfd4064ae398795928432c59156aee34cf7224e7d00f714ce82edcb986923cc8286c806fa14d15ecb8'
+Instaconcert::Application.config.secret_token = '70b1b789c1df0e937fd5f7b2546e3b94e53eb6c4a7d78ff0bb287d018def4145a1f57c0171d200e9c662e9d58a11e3e7220e410cd01dfcb4b55fd1b37f8e567c'
+
