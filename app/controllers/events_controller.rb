@@ -18,17 +18,26 @@ class EventsController < ApplicationController
     interval_count = 5
   
     interval = ((@event.max_timestamp - @event.min_timestamp) / interval_count )
-  
+    
     instagram = Instaconcert::Instagram.new(:client_id => "46bd5797cd3d4ea685cbe3372510cf0c")
     
-    @instagram_data_array = Array.new
+    @instagram_image_array = Array.new
     instagram_hash = Array.new(interval_count)
+    
+    #Make the API  Media/Search calls
     instagram_hash.each_with_index do |item, i| 
-      item = instagram.media_search(@event.lat, @event.long, @event.max_timestamp - interval*(interval_count-(i+1)), @event.min_timestamp + interval*(i), @event.distance)
+      item = instagram.media_search(@event.lat, @event.long, 
+                                    @event.max_timestamp - interval*(interval_count-(i+1)),
+                                    @event.min_timestamp + interval*(i), 
+                                    @event.distance)
+      
+      
+      
       #write something to check response codes later
        
+   
    #   if item["meta"] = 
-      if item["data"] != nil then @instagram_data_array += item["data"]  
+      if item["data"] != nil then @instagram_image_array += item["data"]  
       #what in the ever living fuck makes this "if" necessary
       
       
@@ -40,9 +49,39 @@ class EventsController < ApplicationController
       # 
       # instagram_likes.sort
       # 
-
-      
+   
     end
+    
+    @tidy_image_array = Array.new
+
+    
+    @instagram_image_array.each_with_index do |img, i|
+      new_img = Image.new
+      new_img[:instagram_id] = img["id"]
+      new_img[:lat] = img["location"]["latitude"]
+      new_img[:long] = img["location"]["longitude"]
+      new_img[:img_lowres_url] = img["images"]["low_resolution"]["url"]
+      new_img[:img_thumb_url] = img["images"]["thumbnail"]["url"]
+      new_img[:img_standard_url] = img["images"]["standard_resolution"]["url"]
+      #if img["id"] = "238555744168411625_11614703" then puts img["caption"]
+     # end
+      if img["caption"] then 
+        new_img[:caption_text] = img["caption"]["text"]
+        new_img[:caption_time] = Time.at(img["caption"]["created_time"].to_i)
+      end
+      if img ["likes"]
+        new_img[:like_count] = img["likes"]["count"]
+      end
+      new_img[:img_time] = Time.at(img["created_time"].to_i)
+      new_img[:instagram_link_url] = img["link"]
+      new_img[:event_id] = @event.id
+      
+      #new_img.save
+      @tidy_image_array[i] = new_img
+    end
+    
+    
+    
   end
     
       

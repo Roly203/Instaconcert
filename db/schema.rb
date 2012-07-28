@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120728041539) do
+ActiveRecord::Schema.define(:version => 20120728161808) do
 
   create_table "event_requests", :force => true do |t|
     t.float    "lat"
@@ -34,6 +34,23 @@ ActiveRecord::Schema.define(:version => 20120728041539) do
     t.float    "long"
     t.string   "venue_name"
     t.datetime "start_time"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "instagram_id"
+    t.float    "lat"
+    t.float    "long"
+    t.string   "img_lowres_url"
+    t.string   "img_thumb_url"
+    t.string   "img_standard_url"
+    t.text     "caption_text",       :limit => 255
+    t.time     "caption_time"
+    t.integer  "like_count"
+    t.time     "img_time"
+    t.string   "instagram_link_url"
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.integer  "event_id"
   end
 
 end

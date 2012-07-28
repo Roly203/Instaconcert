@@ -5,14 +5,14 @@
 <p>
   <b>Name:</b>
   <%= @event.name %>
-  <%= @instagram_loc_id %>
-  <%= JSON.pretty_generate (@instagram_data_array) %>
+  <%= @tidy_image_array %>
+  <%= JSON.pretty_generate (@instagram_image_array) %>
   <ul>
-  <% @instagram_data_array.each_with_index do |item,i| %>
-    <li><img src="<%= @instagram_data_array[i]["images"]["standard_resolution"]["url"] %>"></img></li>
+  <% @instagram_image_array.each_with_index do |item,i| %>
+    <li><img src="<%= @instagram_image_array[i]["images"]["standard_resolution"]["url"] %>"></img></li>
   <% end %>
   </ul>
-
+  
 </p>
 
 
