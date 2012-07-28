@@ -4,6 +4,26 @@
   $('.carousel').carousel({
     interval: null
   })
+  
+  $(document).ready(function(){
+    galleryClicks();
+  });
+  
+  var galleryClicks = function(){
+    var carouselItems = $("#myCarousel .item");
+  
+    $('.concert-thumbnail').each(function(i, ele){
+    
+      $(this).click(function(){
+        $(carouselItems).removeClass("active");
+
+        $(carouselItems[i]).addClass("active");
+      
+      });
+    
+    });
+  };
+  
 </script>
 
 <ul>
@@ -26,12 +46,11 @@
       <!-- Carousel items -->
       <div class="carousel-inner">
         
-        <% current_index = 0 %>
+        <% current_index = 5 %>
         <% @event.images.each_with_index do |image, index| %>
-              <div class="<% if index == current_index %>active<% end %> item">
+            <div class="<%# if index == current_index %><%# end %> item">
               <%= link_to(image_tag(image.img_standard_url), "#") %>
             </div>
-  
         <% end %>
 
         <!-- <div class="active item">
