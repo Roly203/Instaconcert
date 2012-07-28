@@ -27,7 +27,7 @@
 </script>
 
 <ul>
-  <% @event.images.each do |image| %>
+  <% @event.images.sort_by { |i| -i[:like_count] }.each do |image| %>
   <li class="concert-thumbnail">
     <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %>
   </li>
@@ -37,7 +37,7 @@
 <div class="modal hide" id="myModal">
   <div class="modal-header">
     <button type="button" class="close" data-dismiss="modal">×</button>
-    <h3>Concert Title</h3>
+    <h3><%= @event.name %></h3>
   </div>
   <div class="modal-body">
     
@@ -46,7 +46,7 @@
       <!-- Carousel items -->
       <div class="carousel-inner">
         
-        <% @event.images.each_with_index do |image, index| %>
+        <% @event.images.sort_by { |i| -i[:like_count] }.each_with_index do |image, index| %>
             <div class="item">
               <%= link_to(image_tag(image.img_standard_url), "#") %>
             </div>
