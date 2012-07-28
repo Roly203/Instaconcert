@@ -14,7 +14,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    if (Image.find_all_by_event_id(@event.id)[0] = []) then
+    if (@event.images.nil?) then
       
       
           interval_count = 5

@@ -75,7 +75,7 @@ li.concert-thumbnail img {
 
 .city-name h1 {
 	padding: 0px;
-	font-size: 64px;
+	font-size: 48px;
 	display: table-cell;
 	vertical-align: middle;
 	line-height: 1.0em;
@@ -108,11 +108,15 @@ li.concert-thumbnail img {
 	color: #888;
 }
 
+.header {
+	text-align: center;
+	padding: 20px 0px;
+}
 .event-date h2 {
 	display: table-cell;
 	vertical-align: middle;
-	font-size: 36px;
-	line-height: 1.25em;
+	font-size: 28px;
+	line-height: 1em;
 }
 
 span.date {

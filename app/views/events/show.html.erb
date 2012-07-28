@@ -25,6 +25,9 @@
   };
   
 </script>
+<div class="header">
+  <h1><%= @event.name%></h1>
+  </div>
 
 <ul>
   <% @event.images.sort_by { |i| -i[:like_count] }.each do |image| %>
