@@ -15,7 +15,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     
-    interval_count = 4
+    interval_count = 5
   
     interval = ((@event.max_timestamp - @event.min_timestamp) / interval_count )
   
@@ -26,8 +26,21 @@ class EventsController < ApplicationController
     instagram_hash.each_with_index do |item, i| 
       item = instagram.media_search(@event.lat, @event.long, @event.max_timestamp - interval*(interval_count-(i+1)), @event.min_timestamp + interval*(i), @event.distance)
       #write something to check response codes later
+       
+   #   if item["meta"] = 
       if item["data"] != nil then @instagram_data_array += item["data"]  
-      #what in the ever living fuck
+      #what in the ever living fuck makes this "if" necessary
+      
+      
+      # instagram_likes = Array.new
+      # #sort array by likes
+      # @instagram_data_array.each_with_index do |jtem, j|
+      #   jtem["likes"]["count"] = instagram_likes[j]
+      # end 
+      # 
+      # instagram_likes.sort
+      # 
+
       
     end
   end
