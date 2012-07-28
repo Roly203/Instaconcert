@@ -46,20 +46,11 @@
       <!-- Carousel items -->
       <div class="carousel-inner">
         
-        <% current_index = 5 %>
         <% @event.images.each_with_index do |image, index| %>
-            <div class="<%# if index == current_index %><%# end %> item">
+            <div class="item">
               <%= link_to(image_tag(image.img_standard_url), "#") %>
             </div>
         <% end %>
-
-        <!-- <div class="active item">
-          <%= link_to image_tag "http://s3.amazonaws.com/static.fab.com/inspiration/61437-612x612-1.png" %>
-        </div>
-
-        <div class="item">
-        <%= link_to image_tag "http://blogs-images.forbes.com/mindylubber/files/2011/09/starbucks-coffee-cup.jpg" %>
-        </div> -->
 
       </div>
       <!-- Carousel nav -->

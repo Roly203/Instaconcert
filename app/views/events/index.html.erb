@@ -1,41 +1,20 @@
+<% @events.each do |event| %>
 <div class="row concert">
   <div class="city float-left">
     <div class="city-name">
-      <h1>San Francisco</h1>
+      <h1><%= event.name %></h1>
     </div>
   </div>
     
   <div class="concert-image">
-    <%= link_to image_tag("http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "/#", :class => "concert-image" %>
+    <%= link_to image_tag(event.images.first.img_lowres_url), event, :class => "concert-image" %>
   </div>
       
   <div class="event-date float-right">
     <div class="event-description">
-      <h2><span class="date">June 10, 2012</span><br />
-      <span class="venue">First Midwest Bank Ampitheater</span></h2>
+      <h2><span class="date"><%= Time.at(event.min_timestamp).strftime("%B %d, %Y") %> @ <%= Time.at(event.min_timestamp).strftime("%l:%M %p") %></span><br />
+      <span class="venue"><%= event.venue_name %></span></h2>
     </div>
   </div>
 </div>
-
-<div class="row concert">
-  <div class="event-date float-left">
-    <div class="event-description">
-      <h2><span class="date">June 10, 2012</span><br />
-      <span class="venue">First Midwest Bank Ampitheater</span></h2>
-    </div>
-  </div>
-    
-  <div class="concert-image">
-    <%= link_to image_tag("http://hipstaphone.com/wp-content/uploads/2012/04/9c1227a67cf611e1be3f123138048c85_76-306x306.jpg"), "/#", :class => "concert-image" %>
-  </div>
-  
-  <div class="city float-right">
-     <div class="city-name">
-       <h1>Chicago</h1>
-     </div>
-   </div>
-</div>
-
-
-</div>
-
+<% end %>
