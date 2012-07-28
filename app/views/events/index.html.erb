@@ -1,23 +1,20 @@
-<h1>Listing events</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= link_to 'Show', event %></td>
-    <td><%= link_to 'Edit', edit_event_path(event) %></td>
-    <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<div class="row concert">
+  <div class="city float-left">
+    <div class="city-name">
+      <h1><%= event.name %></h1>
+    </div>
+  </div>
+    
+  <div class="concert-image">
+    <%= link_to image_tag(event.images.first.img_lowres_url), event, :class => "concert-image" %>
+  </div>
+      
+  <div class="event-date float-right">
+    <div class="event-description">
+      <h2><span class="date"><%= Time.at(event.min_timestamp).strftime("%B %d, %Y") %> @ <%= Time.at(event.min_timestamp).strftime("%l:%M %p") %></span><br />
+      <span class="venue"><%= event.venue_name %></span></h2>
+    </div>
+  </div>
+</div>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Event', new_event_path %>

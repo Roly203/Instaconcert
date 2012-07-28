@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+//= bootstrap
+//= require bootstrap-modal
+//= require bootstrap-carousel

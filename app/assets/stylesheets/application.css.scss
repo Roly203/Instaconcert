@@ -1,0 +1,216 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+@import "bootstrap";
+
+body {
+	padding-top: 60px;
+}
+
+.navbar .brand {
+	font-family: 'Codystar', serif;
+	font-weight: normal;
+	letter-spacing: 1px;
+}
+
+h1 {
+	font-size: 36px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+.row {
+	margin-left: 0px;
+}
+
+.concerts {
+	font-size: 18px;
+	line-height: 1.5em;
+	margin-left: 0px;
+	padding-left: 0px;
+}
+
+ul {
+	list-style: none;
+	margin-left: 0;
+}
+
+li.concert-thumbnail {
+	float: left;
+	box-shadow: 0px 2px 3px rgba(34, 25, 25, 0.5);
+	margin: 0px 12px 12px 0px;
+	
+}
+
+li.concert-thumbnail img {
+	width: 222px;
+}
+
+.city {
+	width: 350px;
+	padding: 0px 0px;
+	height: 200px;
+	position: relative;
+}
+
+.city-name {
+	position: absolute;
+	padding: 12px 0;
+	height: 176px;
+	width: 350px;
+	display: table;
+}
+
+.city-name h1 {
+	padding: 0px;
+	font-size: 64px;
+	display: table-cell;
+	vertical-align: middle;
+	line-height: 1.0em;
+}
+
+.concert {
+	padding-bottom: 20px;
+}
+
+.concert-image {
+	float: left;
+}
+
+.concert-image img {
+	width: 200px;
+}
+
+.event-date {
+	position: relative;
+	float: left;
+	height: 176px;
+	width: 350px;
+	padding: 12px 0px;	
+}
+
+.event-description {
+	position: absolute;
+	display: table;
+	height: 176px;
+	color: #888;
+}
+
+.event-date h2 {
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 36px;
+	line-height: 1.25em;
+}
+
+span.date {
+}
+
+span.venue {
+	font-weight: normal;
+}
+
+.float-left {
+	float: left;
+	text-align: right;
+	padding-right: 20px;
+}
+	
+.float-right {
+	float: right;
+	text-align: left;
+	padding-left: 20px;
+}
+
+.modal {
+	width: 810px;
+	background: black;
+	border: none;
+	top: 40%;
+	left: 44%;
+}
+
+.modal-body {
+	margin: 0;
+	padding-bottom: 0;
+	max-height: none;
+	overflow-y: hidden;
+	border: none;
+	height: 630px;
+}
+
+.modal img {
+	margin-left: 88px;
+}
+
+.modal-header {
+	border-bottom-color: #eee;
+}
+
+.modal-header h3 {
+	color: #BBBDC0;
+	font-weight: normal;
+	font-size: 24px;
+	padding: 6px 15px;
+}
+
+.modal-header .close {
+	border: none;
+	background: black;
+	color: white;
+}
+
+.modal-footer {
+	padding: 15px;
+	border-top: none;
+	background: black;
+}
+
+.carousel {
+	border: none;
+	margin-bottom: 12px;
+}
+
+.carousel-inner {
+	max-height: none;
+	overflow-y: hidden;
+}
+
+.carousel-control, .left, .right {
+	top: 50%;
+}
+
+.carousel .item, .carousel .active {
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
+
+.profile-pic img {
+	width: 60px;
+	float: left;
+}
+
+.comments {
+	float: left;
+	text-align: left;
+	width: 550px;
+	margin-left: 12px;
+	color: white;
+	font-size: 13px;
+	line-height: 1.5em;
+	padding-right: 0px;
+}

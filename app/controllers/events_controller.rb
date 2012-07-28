@@ -91,7 +91,6 @@ class EventsController < ApplicationController
     # hardcoded location_id to Wrigley Field 
     #@instagram_hash = instagram.location_recent(@instagram_loc_id, @event.max_timestamp, @event.min_timestamp)
 
-    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
