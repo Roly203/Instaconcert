@@ -14,9 +14,8 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    if (@event.images.nil?) then
-      
-      
+    if (@event.images.nil? or @event.images.empty?) then
+      #we should be able to combine these into one....
           interval_count = 5
                           
                             interval = ((@event.max_timestamp - @event.min_timestamp) / interval_count )
@@ -37,11 +36,13 @@ class EventsController < ApplicationController
                               
                               #write something to check response codes later
                                
-                                    if item["data"] and item["meta"]["code"] = 200 then 
-                                        @instagram_image_array += item["data"]  
-                                    end 
-                        
-                              
+
+                               
+                                                                   if item["data"].nil? != true and item["meta"]["code"] = 200 then 
+                                                                                                         @instagram_image_array += item["data"]  
+                                                                                                     end 
+                                                                                         
+                                                             
                               
                               # instagram_likes = Array.new
                               # #sort array by likes
@@ -78,9 +79,9 @@ class EventsController < ApplicationController
                               new_img.save
                             end
               
-        
+        @event = Event.find(params[:id])
     end
-    
+
     #@instagram_loc_id = instagram.location_search(@event.lat, @event.long, @event.distance)["data"][0]["id"].to_s
  
  
@@ -94,6 +95,7 @@ class EventsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @event }
+    
     end
   end
 
