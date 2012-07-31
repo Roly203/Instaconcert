@@ -16,7 +16,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     if (@event.images.nil? or @event.images.empty?) then
       #we should be able to combine these into one....
-          interval_count = 5
+          interval_count = 20
                           
                             interval = ((@event.max_timestamp - @event.min_timestamp) / interval_count )
                             

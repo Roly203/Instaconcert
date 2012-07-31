@@ -29,6 +29,13 @@
   <h1><%= @event.name%></h1>
   </div>
 
+<div class="subheader">
+  <%= @event.venue_name %> | 
+  <%= Time.at(@event.min_timestamp).strftime("%B %d, %Y") %> |
+  <%= Time.at(@event.min_timestamp).strftime("%l:%M %p") + " - " +       Time.at(@event.max_timestamp).strftime("%l:%M %p %Z")  %>
+</div>
+
+<br>
 <ul>
   <% @event.images.sort_by { |i| i[:img_time] }.each do |image| %>
   <li class="concert-thumbnail">

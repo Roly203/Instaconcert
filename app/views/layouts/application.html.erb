@@ -1,26 +1,45 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Instaconcert</title>
+  <title>Instalympics</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Codystar' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Nunito' rel='stylesheet' type='text/css'>
+  
 </head>
 <body>
-
-<div class="navbar navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="/">
-        INSTALYMPICS
-      </a>
+<div class="wrapper">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">
+          INSTALYMPICS
+        </a>
       
+      </div>
     </div>
+  </div>
+
+  <div class="container main-container">
+    <%= yield %>
+  
+  </div>
+</div>
+<div class="footer">
+  <div class="footer-container">
+    <hr>
+  Built by <%= link_to "@pummer", "https://twitter.com/pummer" %> 
+  <%= link_to "@rolyperez", "https://twitter.com/rolyperez" %> 
+  <%= link_to "@tjarmain", "https://twitter.com/tjarmain" %> 
+  <%= link_to "@SeanKienzle", "https://twitter.com/SeanKienzle" %>
+   at <%= link_to "@CodeAcademy", "https://twitter.com/CodeAcademy" %>
+   during <%= link_to "#caHack", "https://twitter.com/i/#!/search/%23cahack?q=%23cahack" %>
+   July 2012 at <%= link_to "@1871Chicago", "https://twitter.com/1871Chicago" %>
   </div>
 </div>
 
-<div class="container main-container">
-  <%= yield %>
-</div>
+</body>
+</html>

@@ -7,7 +7,7 @@
   </div>
     
   <div class="concert-image">
-    <% if (event.thumb_img_id) %>
+    <% if (Image.find_by_id(event.thumb_img_id)) and Image.first != nil %>
       <%= link_to image_tag(Image.find_by_id(event.thumb_img_id).img_lowres_url), event, :class => "concert-image" %>
     <% else %>
       <%= link_to image_tag('gray.jpg'), event, :class => "concert-image" %>
@@ -16,7 +16,7 @@
       
   <div class="event-date float-right">
     <div class="event-description">
-      <h2><span class="date"><%= Time.at(event.min_timestamp).strftime("%B %d, %Y") %> @ <%= Time.at(event.min_timestamp).strftime("%l:%M %p") %></span><br />
+      <h2>  <span class="date"><%= Time.at(event.min_timestamp).strftime("%B %d, %Y") %> @ <%= Time.at(event.min_timestamp).strftime("%l:%M %p") %></span><br /><span class="venue"><%= event.details %></span><br/>
       <span class="venue"><%= event.venue_name %></span></h2>
     </div>
   </div>
