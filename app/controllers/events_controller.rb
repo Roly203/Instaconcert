@@ -2,7 +2,7 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    @events = Event.where('max_timestamp < ?',DateTime.now.to_i).order("start_time DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -54,7 +54,8 @@ class EventsController < ApplicationController
                               # 
                            
                             end
-                                                    
+                            max_likes = 0
+                                         
                             @instagram_image_array.each_with_index do |img, i|
                               new_img = Image.new
                               new_img[:instagram_id] = img["id"]
@@ -76,10 +77,27 @@ class EventsController < ApplicationController
                               new_img[:instagram_link_url] = img["link"]
                               new_img[:event_id] = @event.id
                               
+                              
+                              
                               new_img.save
+                              
+                              
+                              tmp = Event.new
+                              if new_img[:like_count] > max_likes then
+                                tmp = Event.find(params[:id])
+                                tmp.thumb_img_id = new_img[:id]
+                              end 
+                              if tmp.thumb_img_id != @event.thumb_img_id then
+                                                                tmp.save
+                              end
                             end
+        
+                            
+        
+
               
         @event = Event.find(params[:id])
+        
     end
 
     #@instagram_loc_id = instagram.location_search(@event.lat, @event.long, @event.distance)["data"][0]["id"].to_s

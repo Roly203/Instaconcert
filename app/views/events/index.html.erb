@@ -7,8 +7,8 @@
   </div>
     
   <div class="concert-image">
-    <% if event.images.first %>
-      <%= link_to image_tag(event.images.first.img_lowres_url), event, :class => "concert-image" %>
+    <% if (event.thumb_img_id) %>
+      <%= link_to image_tag(Image.find_by_id(event.thumb_img_id).img_lowres_url), event, :class => "concert-image" %>
     <% else %>
       <%= link_to image_tag('gray.jpg'), event, :class => "concert-image" %>
     <% end %>

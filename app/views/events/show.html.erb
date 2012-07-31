@@ -30,7 +30,7 @@
   </div>
 
 <ul>
-  <% @event.images.sort_by { |i| -i[:like_count] }.each do |image| %>
+  <% @event.images.sort_by { |i| i[:img_time] }.each do |image| %>
   <li class="concert-thumbnail">
     <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %>
   </li>
@@ -49,7 +49,7 @@
       <!-- Carousel items -->
       <div class="carousel-inner">
         
-        <% @event.images.sort_by { |i| -i[:like_count] }.each_with_index do |image, index| %>
+        <% @event.images.sort_by { |i| i[:img_time] }.each_with_index do |image, index| %>
             <div class="item">
               <%= link_to(image_tag(image.img_standard_url), "#") %>
             </div>
