@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120731200912) do
+ActiveRecord::Schema.define(:version => 20120801023008) do
 
   create_table "event_requests", :force => true do |t|
     t.float    "lat"
@@ -21,6 +21,12 @@ ActiveRecord::Schema.define(:version => 20120731200912) do
     t.integer  "distance"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "eventgroups", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "events", :force => true do |t|
@@ -36,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120731200912) do
     t.datetime "start_time"
     t.integer  "thumb_img_id"
     t.text     "details"
+    t.integer  "eventgroup_id"
   end
 
   create_table "images", :force => true do |t|

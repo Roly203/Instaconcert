@@ -1,0 +1,82 @@
+<script type="text/javascript" charset="utf-8">
+  $('#myModal').modal('show')
+  
+  $('.carousel').carousel({
+    interval: null
+  })
+  
+  $(document).ready(function(){
+    galleryClicks();
+  });
+  
+  var galleryClicks = function(){
+    var carouselItems = $("#myCarousel .item");
+  
+    $('.concert-thumbnail').each(function(i, ele){
+    
+      $(this).click(function(){
+        $(carouselItems).removeClass("active");
+
+        $(carouselItems[i]).addClass("active");
+      
+      });
+    
+    });
+  };
+  
+</script>
+<div class="">  
+  <div class="header">
+    <h1><%= @eventgroup.name%> - </h1>
+  </div>
+
+
+  <br>
+  <ul>
+    <% @eventgroup.images.sort_by { |i| i[:img_time] }.each do |image| %>
+    <li class="concert-thumbnail">
+      <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="modal hide" id="myModal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3><%= @eventgroup.name %></h3>
+    </div>
+
+    <div class="modal-body">
+  
+      <!-- Image carousel -->
+      <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+      
+          <% @eventgroup.images.sort_by { |i| i[:img_time] }.each_with_index do |image, index| %>
+              <div class="item">
+                <%= link_to(image_tag(image.img_standard_url), "#") %>
+              </div>
+          <% end %>
+
+        </div>
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+      </div>    
+
+    </div>
+    <div class="modal-footer">
+      <div class="profile-pic">
+        <img src="http://distilleryimage1.instagram.com/42376ee09b7211e181bd12313817987b_7.jpg" />
+      </div>
+      <div class="comments">
+        Comments go here lots and lots of comments and other text and i wonder how this will pan out and where it will end up
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<p id="notice"><%= notice %></p>
