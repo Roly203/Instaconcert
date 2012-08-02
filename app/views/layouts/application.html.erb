@@ -30,97 +30,96 @@
             <!-- AQUATIC -->
             <li class="dropdown" id="menu1">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#menu1">
-                    Aquatic
+                    Aquatics
                     <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                    <li><a href="#">Canoe</a></li>
-                    <li><a href="#">Diving</a></li>
-                    <li><a href="#">Marathon Swimming</a></li>
-                    <li><a href="#">Rowing</a></li>
-                    <li><a href="#">Sailing</a></li>
-                    <li><a href="#">Swimming</a></li>        
-                    <li><a href="#">Synchronized Swimming</a></li>
-                    <li><a href="#">Water Polo</a></li>                
+                    <li><%= link_to "Canoe", "/eventgroups/" + Eventgroup.find_by_name("Canoe").id.to_s %></li>
+                    <li><%= link_to "Diving", "/eventgroups/" + Eventgroup.find_by_name("Diving").id.to_s %></li>
+                    <li><%= link_to "Marathon Swimming", "/eventgroups/" + Eventgroup.find_by_name("Marathon Swimming").id.to_s %></li>
+                    <li><%= link_to "Rowing", "/eventgroups/" + Eventgroup.find_by_name("Rowing").id.to_s %></li>
+                    <li><%= link_to "Sailing", "/eventgroups/" + Eventgroup.find_by_name("Sailing").id.to_s %></li>
+                    <li><%= link_to "Swimming", "/eventgroups/" + Eventgroup.find_by_name("Swimming").id.to_s %></li>
+                    <li><%= link_to "Synchronised Swimming", "/eventgroups/" + Eventgroup.find_by_name("Sychronised Swimming").id.to_s %></li>
+                    <li><%= link_to "Water Polo", "/eventgroups/" + Eventgroup.find_by_name("Water Polo").id.to_s %></li>              
               </ul>
             </li>
             
-            <!-- ATHLETICS -->
-            <li class="dropdown" id="menu2">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
-                    Athletics
-                    <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="#">Athletics</a></li>
-                    <li><a href="/eventgroups/2">Gymnastics</a></li>
-                    <li><a href="#">Modern Pentathalon</a></li>
-                    <li><a href="#">Triathlon</a></li>
-              </ul>
-            </li>
+
             
             <!-- BALL -->
-            <li class="dropdown" id="menu3">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
-                    Ball
+            <li class="dropdown" id="menu2">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu2">
+                    Ball Sports
                     <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-
-                    <li><a href="#">Basketball</a></li>
-                    <li><a href="#">Beach Volleyball</a></li>
-                    <li><a href="/eventgroups/1">Football</a></li>
-                    <li><a href="#">Handball</a></li>
-                    <li><a href="#">Table Tennis</a></li>                    
-                    <li><a href="#">Tennis</a></li>
-                    <li><a href="#">Volleyball</a></li>
-                    
+                <li><%= link_to "Basketball", "/eventgroups/" + Eventgroup.find_by_name("Basketball").id.to_s %></li>
+                <li><%= link_to "Beach Volleyball", "/eventgroups/" + Eventgroup.find_by_name("Beach Volleyball").id.to_s %></li>
+                <li><%= link_to "Football", "/eventgroups/" + Eventgroup.find_by_name("Football").id.to_s %></li>
+                <li><%= link_to "Hockey", "/eventgroups/" + Eventgroup.find_by_name("Hockey").id.to_s %></li>
+                <li><%= link_to "Handball", "/eventgroups/" + Eventgroup.find_by_name("Handball").id.to_s %></li>
+                <li><%= link_to "Table Tennis", "/eventgroups/" + Eventgroup.find_by_name("Table Tennis").id.to_s %></li>
+                <li><%= link_to "Tennis", "/eventgroups/" + Eventgroup.find_by_name("Tennis").id.to_s %></li>
+                <li><%= link_to "Volleyball", "/eventgroups/" + Eventgroup.find_by_name("Volleyball").id.to_s %></li>
+                                
               </ul>
             </li>  
+  
+            <!-- VERSUS-->
+            <li class="dropdown" id="menu3">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu3">
+                    Head to Head
+                    <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Boxing", "/eventgroups/" + Eventgroup.find_by_name("Boxing").id.to_s %></li>
+                <li><%= link_to "Fencing", "/eventgroups/" + Eventgroup.find_by_name("Fencing").id.to_s %></li>
+                <li><%= link_to "Judo", "/eventgroups/" + Eventgroup.find_by_name("Judo").id.to_s %></li>
+                <li><%= link_to "Taekwondo", "/eventgroups/" + Eventgroup.find_by_name("Taekwondo").id.to_s %></li>
+                <li><%= link_to "Wrestling", "/eventgroups/" + Eventgroup.find_by_name("Wrestling").id.to_s %></li>
+                                                     
+              </ul>
+            </li>
             
-            <!-- OTHER -->
+    
+   
+            
+            
+            <!-- GYMNASTICS -->
             <li class="dropdown" id="menu4">
+              <%= link_to "Gymnastics", "/eventgroups/" + Eventgroup.find_by_name("Gymnastics").id.to_s , :class => "dropdown-toggle" %>
+            </li>         
+                      
+            <!-- OTHER -->
+            <li class="dropdown" id="menu5">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#menu4">
                     Other
                     <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                    <li><a href="#">Archery</a></li>
-                    <li><a href="#">Badminton</a></li>
-                    <li><a href="#">Hockey</a></li>                    
-                    <li><a href="#">Shooting</a></li>    
-                    <li><a href="#">Weightlifting</a></li>                  
+                
+                 <li><%= link_to "Archery", "/eventgroups/" + Eventgroup.find_by_name("Archery").id.to_s %></li>
+                 <li><%= link_to "Athletics", "/eventgroups/" + Eventgroup.find_by_name("Athletics").id.to_s %></li>
+                  <li><%= link_to "Badminton", "/eventgroups/" + Eventgroup.find_by_name("Badminton").id.to_s %></li>
+                  <li><%= link_to "Cycling", "/eventgroups/" + Eventgroup.find_by_name("Cycling").id.to_s %></li>
+                  <li><%= link_to "Equestrian", "/eventgroups/" + Eventgroup.find_by_name("Equestrian").id.to_s %></li>
+                  <li><%= link_to "Modern Pentathlon", "/eventgroups/" + Eventgroup.find_by_name("Modern Pentathlon").id.to_s %></li>
+                  <li><%= link_to "Shooting", "/eventgroups/" + Eventgroup.find_by_name("Shooting").id.to_s %></li>
+                  <li><%= link_to "Triathlon", "/eventgroups/" + Eventgroup.find_by_name("Triathlon").id.to_s %></li>
+                  <li><%= link_to "Weightlifting", "/eventgroups/" + Eventgroup.find_by_name("Weightlifting").id.to_s %></li>
               </ul>
             </li>
             
-            <!-- RIDING -->
-            <li class="dropdown" id="menu5">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu5">
-                    Riding
-                    <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="#">Cycling</a></li>
-                    <li><a href="#">Equestrian</a></li>
-              </ul>
-            </li>
 
-            <!-- VERSUS-->
-            <li class="dropdown" id="menu6">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#menu6">
-                    Versus
-                    <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="#">Boxing</a></li>
-                    <li><a href="#">Fencing</a></li>
-                    <li><a href="#">Judo</a></li>
-                    <li><a href="#">Taekwondo</a></li>                   
-                    <li><a href="#">Wrestling</a></li>                                        
-              </ul>
-            </li>
+
+            
+            
+            
             
           </ul>
+            
+            
             
               
         </div>

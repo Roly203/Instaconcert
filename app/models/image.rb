@@ -4,7 +4,6 @@ class Image < ActiveRecord::Base
   belongs_to :event
   
   def fill_image(img)
-    puts img 
      self.instagram_id = img["id"]
      self[:lat] = img["location"]["latitude"]
      self[:long] = img["location"]["longitude"]
