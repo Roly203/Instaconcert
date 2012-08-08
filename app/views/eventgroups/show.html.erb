@@ -9,12 +9,20 @@
     <% @events.each do |event| %>
 
       <% if Image.find_by_id(event.thumb_img_id) %>
-          <li class="concert-thumbnail-polaroid">
-      <%= link_to( image_tag(Image.find_by_id(event.thumb_img_id).img_lowres_url), event ) %><br/>
-      <div class="polaroid-caption">
-          <%= event.details %>
-      </div>
-          </li>
+
+
+
+	    <li class="concert-thumbnail-polaroid">
+	      <%= link_to (image_tag Image.find_by_id(event.thumb_img_id).img_lowres_url, :id => event.thumb_img_id), "#myModal", :data => {:toggle => "modal" } %><br/>
+	      <div class="polaroid-caption">
+	        <div class="eventcaption">
+	        <%= "#{event.details}" %>
+	        </div>
+	        <div class="datetime">
+	          <%= Time.at(event.min_timestamp) %>
+	        </div>
+	      </div>
+	    </li>
       <% end %>
 
     <% end %>

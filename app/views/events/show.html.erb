@@ -45,7 +45,6 @@
       <%= will_paginate @images %>
   </ul>
 
-  
   <div class="modal hide" id="myModal">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">×</button>
@@ -53,32 +52,27 @@
     </div>
 
     <div class="modal-body">
-  
       <!-- Image carousel -->
       <div id="myCarousel" class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
-      
-          <% @event.images.sort_by { |i| i[:img_time] }.each_with_index do |image, index| %>
+          <% @images.order('img_time DESC').each_with_index do |image, index| %>
               <div class="item">
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
+                <div class="carousel-caption">
+                  <h4><i>@<%="#{image.photographer}" %></i>: <%= "#{image.caption_text}"%></h4>
+                  <%= link_to( (image.event.name+" | "+ image.event.details), events_path+'/'+image.event.id.to_s ) %><br/> <%=image.event.venue_name%><br/><%= link_to("#{Time.at(image.img_time).strftime("%B %d, %Y")} | #{Time.at(image.img_time).strftime("%l:%M %p")}", image.instagram_link_url) %>
+                </div>
               </div>
-          <% end %>
-
+            <% end %>
         </div>
         <!-- Carousel nav -->
         <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
         <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>    
+    </div>
+  </div>  
 
-    </div>
-    <div class="modal-footer">
-      <div class="profile-pic">
-        <img src="http://distilleryimage1.instagram.com/42376ee09b7211e181bd12313817987b_7.jpg" />
-      </div>
-      <div class="comments">
-        Comments go here lots and lots of comments and other text and i wonder how this will pan out and where it will end up
-      </div>
-    </div>
-  </div>
+
+
 </div>
