@@ -25,10 +25,11 @@
 </script>
 <div class="">  
   <div class="header">
-    <h1>Most Recent Photos</h1>
-    <h2>put some text here to tell users how to browse events and have most recent time</h2>
+    <h2>Click categories above to browse by sport.</h2>
   </div>
-
+  <div class="subheader">
+    Last updated: <%= @images.order('img_time DESC')[0].img_time %> <!-- fix this because it's not real -->
+  </div>
 
   <br>
   <ul>
@@ -37,7 +38,7 @@
       <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %><br/>
       <div class="polaroid-caption">
         <div class="instacaption">
-        <%= image.caption_text %>
+        <%= "#{image.caption_text}" %>
         </div>
         <div class="datetime">
           <%= image.img_time %>
@@ -50,7 +51,7 @@
   <div class="modal hide" id="myModal">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">×</button>
-      <h3></h3>
+      <h3>Recent Photos</h3>
     </div>
 
     <div class="modal-body">
@@ -58,32 +59,23 @@
       <div id="myCarousel" class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <!-- Carousel nav -->
-          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+
           <% @images.order('img_time DESC').each_with_index do |image, index| %>
               <div class="item">
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
                 <div class="carousel-caption">
-                  <h4>
-                  <%= image.caption_text %>
-                  </h4>
-
-                  <%= link_to (image.event.name+" | "+ image.event.details+" | "+image.event.venue_name), events_url(image.event) %><br/> 
-                  
-                 
+                  <h4><%= "#{image.caption_text}"%> <i><%="-#{image.photographer}" %></i></h4>
+                  <%= link_to( (image.event.name+" | "+ image.event.details+" | "+image.event.venue_name), events_path+'/'+image.event.id.to_s ) %><br/> <%= link_to("#{Time.at(image.event.min_timestamp).strftime("%B %d, %Y")} | #{Time.at(image.event.min_timestamp).strftime("%l:%M %p")}", image.instagram_link_url) %>
+                </div>
               </div>
+            <% end %>
         </div>
-          <% end %>
-
-
-
+        <!-- Carousel nav -->
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
       </div>    
-
-
     </div>
-        </div>
-
+  </div>
 </div>
 
 

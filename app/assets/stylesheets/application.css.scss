@@ -16,7 +16,7 @@
 
 body {
 	padding-top: 60px;
-	font-family: 'Nunito', serif;
+	font-family: 'Nunito', sans-serif;
 	height: 100%;
 }
 
@@ -73,12 +73,13 @@ body {
 
 
 h1 {
-	font-family: 'Nunito', serif;
+	font-family: 'Nunito', sans-serif;
 	font-size: 24px;
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 16px;
+	font-family: 'Nunito', 'Arial', sans-serif;
 }
 
 .row {
@@ -249,7 +250,7 @@ span.venue {
 }
 
 .footer-container{
-	font-size: 8px;
+	font-size: 12px;
 	font-weight: bold;
 	font-style: italic;
 	padding: 4px;
@@ -298,7 +299,6 @@ span.venue {
 
 .modal-footer {
 	padding: 15px;
-
 	background: black;
 }
 
@@ -340,7 +340,6 @@ span.venue {
 	height: 100%;
 	border-top-color: #eee;
 	border-top-weight: 2px;
-	background: #111;
 }
 
 .carousel-caption a { 

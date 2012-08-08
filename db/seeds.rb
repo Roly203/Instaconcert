@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+    Image.destroy_all
+    Event.all do |ev|
+      if ev.max_timestamp < DateTime.now.to_i
+        ev.fill_images
+      end
+    end

@@ -16,3 +16,4 @@
 //= bootstrap
 //= require bootstrap-modal
 //= require bootstrap-carousel
+

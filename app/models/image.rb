@@ -10,6 +10,7 @@ class Image < ActiveRecord::Base
      self[:img_lowres_url] = img["images"]["low_resolution"]["url"]
      self[:img_thumb_url] = img["images"]["thumbnail"]["url"]
      self[:img_standard_url] = img["images"]["standard_resolution"]["url"]
+     self[:photographer] = img["user"]["username"]
      #if img["id"] = "238555744168411625_11614703" then puts img["caption"]
     # end
      if img["caption"] then 

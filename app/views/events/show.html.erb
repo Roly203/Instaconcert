@@ -61,7 +61,6 @@
           <% @event.images.sort_by { |i| i[:img_time] }.each_with_index do |image, index| %>
               <div class="item">
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
-                <%= image.event.name %>
               </div>
           <% end %>
 

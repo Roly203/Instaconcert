@@ -28,7 +28,7 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
-    if (@event.images.nil? or @event.images.empty?) then @event.fill_images
+    if (@event.images.nil? || @event.images.empty?) then @event.fill_images
       #we should be able to combine these into one....
         
         
