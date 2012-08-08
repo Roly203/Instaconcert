@@ -15,8 +15,8 @@ class EventsController < ApplicationController
   # GET /eventsindex
   # GET /eventsindex.json
   def eventsindex
-    @events = Event.where('max_timestamp < ?',DateTime.now.to_i).order("start_time DESC")
-
+    @events = Event.where('max_timestamp < ?',DateTime.now.to_i).order("start_time DESC")  
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @events }
@@ -28,12 +28,13 @@ class EventsController < ApplicationController
   # GET /events/1.json
   def show
     @event = Event.find(params[:id])
+    unless @event.nil?
+      @images = @event.images
+      @images = @images.paginate :page => params[:page], :per_page => 10
+    end
+    
     if (@event.images.nil? || @event.images.empty?) then @event.fill_images
       #we should be able to combine these into one....
-        
-        
-        
-        
         @event = Event.find(params[:id])
         
     end
