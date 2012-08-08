@@ -260,24 +260,29 @@ span.venue {
 }
 
 .modal {
-	width: 810px;
+	width: 504px;
 	background: black;
 	border: none;
 	top: 40%;
-	left: 44%;
+	left: 50%;
+
+}
+
+.modal h4 {
+	font-family: sans-serif;
 }
 
 .modal-body {
 	margin: 0;
-	padding-bottom: 0;
+	padding: 0;
+	width: 504px;
 	max-height: none;
 	overflow-y: hidden;
 	border: none;
-//	height: 630px;
 }
 
 .modal img {
-	margin-left: 88px;
+	width: 504px;
 }
 
 .modal-header {
@@ -288,7 +293,7 @@ span.venue {
 	color: #BBBDC0;
 	font-weight: normal;
 	font-size: 24px;
-	padding: 6px 15px;
+	padding: 6px 0px;
 }
 
 .modal-header .close {

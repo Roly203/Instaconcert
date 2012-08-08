@@ -31,7 +31,7 @@
   </div>
   
   <div class="subheader">
-    <%= @event.name %> | 
+    <%= @event.details %> | 
     <%= Time.at(@event.min_timestamp).strftime("%B %d, %Y") %> |
     <%= Time.at(@event.min_timestamp).strftime("%l:%M %p") + " - " + Time.at(@event.max_timestamp).strftime("%l:%M %p %Z")  %>
   </div>
@@ -40,8 +40,9 @@
   <ul>
     <div id="images">
       <%= render @images %>
-      <%= will_paginate @images %>
+
     </div>
+      <%= will_paginate @images %>
   </ul>
 
   

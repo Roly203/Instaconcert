@@ -59,13 +59,12 @@
       <div id="myCarousel" class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
-
           <% @images.order('img_time DESC').each_with_index do |image, index| %>
               <div class="item">
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
                 <div class="carousel-caption">
-                  <h4><%= "#{image.caption_text}"%> <i><%="-#{image.photographer}" %></i></h4>
-                  <%= link_to( (image.event.name+" | "+ image.event.details+" | "+image.event.venue_name), events_path+'/'+image.event.id.to_s ) %><br/> <%= link_to("#{Time.at(image.event.min_timestamp).strftime("%B %d, %Y")} | #{Time.at(image.event.min_timestamp).strftime("%l:%M %p")}", image.instagram_link_url) %>
+                  <h4><i>@<%="#{image.photographer}" %></i>: <%= "#{image.caption_text}"%></h4>
+                  <%= link_to( (image.event.name+" | "+ image.event.details), events_path+'/'+image.event.id.to_s ) %><br/> <%=image.event.venue_name%><br/><%= link_to("#{Time.at(image.img_time).strftime("%B %d, %Y")} | #{Time.at(image.img_time).strftime("%l:%M %p")}", image.instagram_link_url) %>
                 </div>
               </div>
             <% end %>
