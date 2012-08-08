@@ -27,7 +27,7 @@
 </script>
 <div class="">  
   <div class="header">
-    <h1><%= @event.name%></h1>
+    <h2><%= link_to "< #{@event.name}", "/eventgroups/"+ @event.eventgroup_id.to_s %></h2>
     
   </div>
   <div class="subheader">
@@ -61,6 +61,7 @@
           <% @event.images.sort_by { |i| i[:img_time] }.each_with_index do |image, index| %>
               <div class="item">
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
+                <%= image.event.name %>
               </div>
           <% end %>
 

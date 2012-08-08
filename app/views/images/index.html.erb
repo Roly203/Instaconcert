@@ -1,0 +1,91 @@
+<script type="text/javascript" charset="utf-8">
+  $('#myModal').modal('show')
+  
+  $('.carousel').carousel({
+    interval: null
+  })
+  
+  $(document).ready(function(){
+    galleryClicks();
+  });
+  
+  var galleryClicks = function(){
+    var carouselItems = $("#myCarousel .item");
+    $('.concert-thumbnail-polaroid').each(function(i, ele){
+    
+      $(this).click(function(){
+        $(carouselItems).removeClass("active");
+
+        $(carouselItems[i]).addClass("active");
+      });
+
+    });
+  };
+  
+</script>
+<div class="">  
+  <div class="header">
+    <h1>Most Recent Photos</h1>
+    <h2>put some text here to tell users how to browse events and have most recent time</h2>
+  </div>
+
+
+  <br>
+  <ul>
+    <% @images.order('img_time DESC').each do |image| %>
+    <li class="concert-thumbnail-polaroid">
+      <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %><br/>
+      <div class="polaroid-caption">
+        <div class="instacaption">
+        <%= image.caption_text %>
+        </div>
+        <div class="datetime">
+          <%= image.img_time %>
+        </div>
+      </div>
+    </li>
+    <% end %>
+  </ul>
+
+  <div class="modal hide" id="myModal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h3></h3>
+    </div>
+
+    <div class="modal-body">
+      <!-- Image carousel -->
+      <div id="myCarousel" class="carousel slide">
+        <!-- Carousel items -->
+        <div class="carousel-inner">
+          <!-- Carousel nav -->
+          <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+          <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+          <% @images.order('img_time DESC').each_with_index do |image, index| %>
+              <div class="item">
+                <%= link_to(image_tag(image.img_standard_url), "#") %>
+                <div class="carousel-caption">
+                  <h4>
+                  <%= image.caption_text %>
+                  </h4>
+
+                  <%= link_to (image.event.name+" | "+ image.event.details+" | "+image.event.venue_name), events_url(image.event) %><br/> 
+                  
+                 
+              </div>
+        </div>
+          <% end %>
+
+
+
+      </div>    
+
+
+    </div>
+        </div>
+
+</div>
+
+
+
+<p id="notice"><%= notice %></p>

@@ -13,6 +13,7 @@
  */
 @import "bootstrap";
 
+
 body {
 	padding-top: 60px;
 	font-family: 'Nunito', serif;
@@ -22,8 +23,23 @@ body {
 
 .navbar-inner {
 	background: #912B82;
-
 }
+
+.navbar .nav li a
+{
+	color: #E6E6E6;
+}
+
+.navbar .nav .dropdown .dropdown-menu li a
+{
+	color: black;
+}
+.navbar .nav .dropdown .dropdown-menu li a:hover
+{
+	background: #FF87ED;
+}
+
+
 
 .navbar .brand {
 	font-size: 30px;
@@ -39,6 +55,11 @@ body {
   -1px 1px 0 #fff,
   1px 1px 0 #fff;*/
 }
+
+.navbar a:dropdown-toggle {
+	color: #fff;
+}
+
 
 .leftnav {
 	float: left;
@@ -76,15 +97,52 @@ ul {
 	margin-left: 0;
 }
 
+
+li.concert-thumbnail-polaroid {
+	float: left;
+	box-shadow: 0px 2px 3px rgba(34, 25, 25, 0.5);
+	margin: 0px 12px 12px 0px;
+	width:222px;
+	height: 300px;
+	background: #F0F0F0;
+	overflow:hidden;
+}
+
+li.concert-thumbnail-polaroid img {
+	width: 210px;
+		margin: 6px;
+}
+
 li.concert-thumbnail {
 	float: left;
 	box-shadow: 0px 2px 3px rgba(34, 25, 25, 0.5);
 	margin: 0px 12px 12px 0px;
-	
 }
+
 
 li.concert-thumbnail img {
 	width: 222px;
+}
+
+.polaroid-caption {
+	height: 78px;
+	font-family: 'Arial', sans-serif;
+	position: relative;
+}
+
+.polaroid-caption .instacaption {
+	padding: 6px;
+	font-family: 'Just Another Hand', sans-serif;
+	font-size: 20px;
+	overflow:hidden;
+}
+.polaroid-caption .datetime {
+	position:absolute;
+	bottom: 5px;
+	right: 6px;
+	font-family: 'Courier', sans-serif;
+	font-size: 10px;
+	color: #AAA;
 }
 
 .city {
@@ -145,7 +203,7 @@ li.concert-thumbnail img {
 .subheader {
 	text-align: left;
 	padding: 0px 0px;
-	font-size: 10px;
+	font-size: 16px;
 
 }
 
@@ -214,7 +272,7 @@ span.venue {
 	max-height: none;
 	overflow-y: hidden;
 	border: none;
-	height: 630px;
+//	height: 630px;
 }
 
 .modal img {
@@ -240,7 +298,7 @@ span.venue {
 
 .modal-footer {
 	padding: 15px;
-	border-top: none;
+
 	background: black;
 }
 
@@ -255,6 +313,7 @@ span.venue {
 .carousel {
 	border: none;
 	margin-bottom: 12px;
+	width: 100%;
 }
 
 .carousel-inner {
@@ -264,6 +323,7 @@ span.venue {
 
 .carousel-control, .left, .right {
 	top: 50%;
+	z-index: 2;
 }
 
 .carousel .item, .carousel .active {
@@ -271,6 +331,21 @@ span.venue {
 	-moz-transition: none;
 	-o-transition: none;
 	transition: none;
+}
+
+.carousel-caption { 
+	position: relative; 
+	color: white;
+	width: 100%;
+	height: 100%;
+	border-top-color: #eee;
+	border-top-weight: 2px;
+	background: #111;
+}
+
+.carousel-caption a { 
+	color: white;
+	font-weight: bold;
 }
 
 .profile-pic img {

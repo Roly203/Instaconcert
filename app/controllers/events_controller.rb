@@ -9,6 +9,20 @@ class EventsController < ApplicationController
       format.json { render json: @events }
     end
   end
+  
+  
+  
+  # GET /eventsindex
+  # GET /eventsindex.json
+  def eventsindex
+    @events = Event.where('max_timestamp < ?',DateTime.now.to_i).order("start_time DESC")
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @events }
+    end
+  end
+  
 
   # GET /events/1
   # GET /events/1.json

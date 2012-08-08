@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 	end
 	
 	def interval_count
-	  return 60
+	  return 20
   end
 	
 	
@@ -48,9 +48,7 @@ class Event < ActiveRecord::Base
         #this is broken                
         if new_img[:like_count] >= max_likes then
           self.thumb_img_id = new_img[:id]
-          puts new_img[:id]
-          puts self.thumb_img_id
-          
+          self.save          
         end
         
       end
