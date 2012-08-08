@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     unless @event.nil?
       @images = @event.images
-      @images = @images.paginate :page => params[:page], :per_page => 10
+      @images = @images.page(params[:page]).per_page(15)
     end
     
     if (@event.images.nil? || @event.images.empty?) then @event.fill_images

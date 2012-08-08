@@ -25,28 +25,25 @@
   };
   
 </script>
-<div class="">  
+
   <div class="header">
-    <h2><%= link_to "< #{@event.name}", "/eventgroups/"+ @event.eventgroup_id.to_s %></h2>
-    
+    <h2><%= link_to "< #{@event.name}", "/eventgroups/"+ @event.eventgroup_id.to_s %></h2>    
   </div>
+  
   <div class="subheader">
     <%= @event.name %> | 
     <%= Time.at(@event.min_timestamp).strftime("%B %d, %Y") %> |
-    <%= Time.at(@event.min_timestamp).strftime("%l:%M %p") + " - " +       Time.at(@event.max_timestamp).strftime("%l:%M %p %Z")  %>
+    <%= Time.at(@event.min_timestamp).strftime("%l:%M %p") + " - " + Time.at(@event.max_timestamp).strftime("%l:%M %p %Z")  %>
   </div>
 
   <br>
   <ul>
-    <li>
-    <% @images.each do |image| %>
-      <li class="concert-thumbnail">
-        <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %>
-      </li>
-    <% end %>
-    </li>
-  </ul>  
-  <%= will_paginate @images %>
+    <div id="images">
+      <%= render @images %>
+      <%= will_paginate @images %>
+    </div>
+  </ul>
+
   
   <div class="modal hide" id="myModal">
     <div class="modal-header">
