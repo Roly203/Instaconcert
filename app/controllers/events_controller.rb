@@ -29,8 +29,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     unless @event.nil?
-      @images = @event.images
-      @images = @images.page(params[:page]).per_page(15)
+      @images = @event.images.order('img_time DESC').page(params[:page]).per_page(16)
     end
     
     if (@event.images.nil? || @event.images.empty?) then @event.fill_images

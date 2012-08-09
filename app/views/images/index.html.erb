@@ -33,19 +33,11 @@
 
   <br>
   <ul>
-    <% @images.order('img_time DESC').each do |image| %>
-    <li class="concert-thumbnail-polaroid">
-      <%= link_to (image_tag image.img_standard_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %><br/>
-      <div class="polaroid-caption">
-        <div class="instacaption">
-        <%= "#{image.caption_text}" %>
-        </div>
-        <div class="datetime">
-          <%= image.img_time %>
-        </div>
-      </div>
-    </li>
-    <% end %>
+        <div id="images">
+	      <%= render :partial => "polaroid_main", :collection => @images %>
+
+	    </div>
+	      <%= will_paginate @images %>
   </ul>
 
   <div class="modal hide" id="myModal">

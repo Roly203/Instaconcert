@@ -1,3 +1,11 @@
-<li class="concert-thumbnail">
-  <%= link_to (image_tag image.img_lowres_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %>
+<li class="concert-thumbnail-polaroid">
+  <%= link_to (image_tag polaroid_main.img_lowres_url, :id => polaroid_main.id), "#myModal", :data => {:toggle => "modal" } %>
+  <div class="polaroid-caption">
+    <div class="instacaption">
+    <%= "#{polaroid_main.caption_text}" %>
+    </div>
+    <div class="datetime">
+      <%= polaroid_main.img_time %>
+    </div>
+  </div>
 </li>
