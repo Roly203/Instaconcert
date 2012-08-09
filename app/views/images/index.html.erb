@@ -51,7 +51,7 @@
       <div id="myCarousel" class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <% @images.order('img_time DESC').each_with_index do |image, index| %>
+          <% @image_load.each_with_index do |image, index| %>
               <div class="item">
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
                 <div class="carousel-caption">

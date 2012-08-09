@@ -30,12 +30,12 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     unless @event.nil?
       @images = @event.images.order('img_time DESC').page(params[:page]).per_page(16)
+  
     end
     
     if (@event.images.nil? || @event.images.empty?) then @event.fill_images
       #we should be able to combine these into one....
-        @event = Event.find(params[:id])
-        
+        @event = Event.find(params[:id])  
     end
 
     #@instagram_loc_id = instagram.location_search(@event.lat, @event.long, @event.distance)["data"][0]["id"].to_s
