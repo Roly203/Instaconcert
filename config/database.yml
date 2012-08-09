@@ -12,11 +12,11 @@ development:
   timeout: 5000
 
 production:
-  adapter: mysql2
+  adapter: sqlite3
   encoding: utf8
   reconnect: false
   pool: 5
-  database: <%=ENV['OPENSHIFT_APP_NAME']%>
+  database: <%=ENV['OPENSHIFT_DATA_DIR']%>production.sqlite3
   username: <%=ENV['OPENSHIFT_DB_USERNAME']%>
   password: <%=ENV['OPENSHIFT_DB_PASSWORD']%>
   socket:   <%=ENV['OPENSHIFT_DB_SOCKET']%>
