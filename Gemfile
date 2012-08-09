@@ -1,3 +1,5 @@
+
+
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.6'
@@ -5,7 +7,9 @@ gem 'rails', '3.2.6'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+
 gem 'sqlite3'
+
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -25,3 +29,24 @@ gem 'instagram'
 gem 'httparty'
 gem 'geocoder'
 gem 'will_paginate', '> 3.0'
+
+# To use ActiveModel has_secure_password
+# gem 'bcrypt-ruby', '~> 3.0.0'
+
+# To use Jbuilder templates for JSON
+# gem 'jbuilder'
+
+# Use unicorn as the app server
+# gem 'unicorn'
+
+# Deploy with Capistrano
+# gem 'capistrano'
+
+# To use debugger
+# gem 'debugger'
+
+# This version needs to be hardcoded for OpenShift compatability
+gem 'thor', '= 0.14.6'
+
+# This needs to be installed so we can run Rails console on OpenShift directly
+gem 'minitest'

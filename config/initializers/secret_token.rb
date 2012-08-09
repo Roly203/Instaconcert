@@ -1,9 +1,13 @@
+require File.join(Rails.root,'lib','openshift_secret_generator.rb')
 # Be sure to restart your server when you modify this file.
 
 # Your secret key for verifying the integrity of signed cookies.
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Instaconcert::Application.config.secret_token = '269d6cc3b651e694a0288450fadb32005130e3c03360e2cfd4064ae398795928432c59156aee34cf7224e7d00f714ce82edcb986923cc8286c806fa14d15ecb8'
-Instaconcert::Application.config.secret_token = '70b1b789c1df0e937fd5f7b2546e3b94e53eb6c4a7d78ff0bb287d018def4145a1f57c0171d200e9c662e9d58a11e3e7220e410cd01dfcb4b55fd1b37f8e567c'
 
+# Set token based on intialize_secret function (defined in initializers/secret_generator.rb)
+Instaconcert::Application.config.secret_token = initialize_secret(
+  :token,
+  '335a4e365ef2daeea969640d74e18f0e3cd9fae1abd8f4125691a880774ea6d456a29c0831aa6921bf86a710fe555e916f0673f5657619ec9df22e0409bec345'
+)
