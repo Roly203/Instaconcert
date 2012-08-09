@@ -14,7 +14,7 @@ class EventgroupsController < ApplicationController
   # GET /eventgroups/1.json
   def show
     @eventgroup = Eventgroup.find(params[:id])
-    @events = Event.where('eventgroup_id = ?',params[:id]).where('max_timestamp < ?',DateTime.now.to_i).where('thumb_img_id != ?','').order("start_time DESC").page(params[:page]).per_page(16)
+    @events = Event.where('eventgroup_id = ?',params[:id]).where('max_timestamp < ?',DateTime.now.to_i).where('thumb_img_id != ?','').order("start_time DESC")
 
     respond_to do |format|
       format.html # show.html.erb

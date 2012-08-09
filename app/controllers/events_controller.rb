@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     unless @event.nil?
-      @images = @event.images.order('img_time DESC').page(params[:page]).per_page(16)
+      @images = @event.images.order('img_time DESC')
   
     end
     

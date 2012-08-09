@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Instalympics</title>
+  <title><%= content_for?(:title) ? content_for(:title) : "Instalympics" %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -33,7 +33,7 @@
     <div class="navbar-inner">
       <div class="container">
         <div class="pull-left">
-          <a class="brand" href="/"><span class="blue">IN</span><span class="yellow">STA</span><span class="black">LY</span><span class="green">MP</span><span class="red">ICS</span></a>
+          <a class="brand" href="/"><span class="black">INSTALYMPICS</span></a>
 </div>
         <div class="pull-left">
           

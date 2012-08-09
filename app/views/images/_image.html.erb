@@ -1,3 +1,5 @@
 <li class="concert-thumbnail">
-  <%= link_to (image_tag image.img_lowres_url, :id => image.id), "#myModal", :data => {:toggle => "modal" } %>
+
+  <%= link_to (image_tag 'blank.gif', :id => image.id, :'data-original' => image.img_lowres_url, :class => "lazy"), "#myModal", :data => {:toggle => "modal" } %>
+
 </li>

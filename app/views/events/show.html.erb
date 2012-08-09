@@ -1,10 +1,11 @@
 <script type="text/javascript" charset="utf-8">
-  $('#myModal').modal('show')
-  
-  $('.carousel').carousel({
-    interval: null
-  })
-  
+    $(function() {
+        $("img.lazy").lazyload();
+        $('.carousel').carousel({
+          interval: 15000
+        });
+    });
+
   $(document).ready(function(){
     galleryClicks();
   });
@@ -25,7 +26,7 @@
   };
   
 </script>
-
+<%- title "Instalympics - #{@event.name} - #{@event.details} - #{Time.at(@event.min_timestamp).strftime("%B %d, %Y")}" %>
   <div class="header">
     <h2><%= link_to "< #{@event.name}", "/eventgroups/"+ @event.eventgroup_id.to_s %></h2>    
   </div>
@@ -42,7 +43,7 @@
       <%= render @images %>
 
     </div>
-      <%= will_paginate @images %>
+
   </ul>
 
   <div class="modal hide" id="myModal">

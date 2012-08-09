@@ -1,3 +1,11 @@
+
+<%- title "Instalympics - #{@eventgroup.name} - All Events" %>
+ <script type="text/javascript" charset="utf-8">
+     $(function() {
+         $("img.lazy").lazyload();
+     });
+</script>
+
 <div class="">  
   <div class="header">
     <h1><%= @eventgroup.name%> - All Events</h1>
@@ -12,7 +20,7 @@
       <%= render :partial => "images/polaroid_eg", :collection => @events %>
 
     </div>
-      <%= will_paginate @events %>
+
 
   </ul>
 

@@ -1,27 +1,33 @@
 <script type="text/javascript" charset="utf-8">
-  $('#myModal').modal('show')
-  
-  $('.carousel').carousel({
-    interval: null
-  })
-  
-  $(document).ready(function(){
-    galleryClicks();
-  });
-  
-  var galleryClicks = function(){
-    var carouselItems = $("#myCarousel .item");
-    $('.concert-thumbnail-polaroid').each(function(i, ele){
-    
-      $(this).click(function(){
-        $(carouselItems).removeClass("active");
+    $(function() {
+        $("img.lazy").lazyload();
+        $('.carousel').carousel({
+          interval: 15000
+        });
 
-        $(carouselItems[i]).addClass("active");
-      });
-
+        
     });
-  };
-  
+
+
+    $(document).ready(function(){
+      galleryClicks();
+    });
+
+    var galleryClicks = function(){
+      var carouselItems = $("#myCarousel .item");
+
+      $('.concert-thumbnail-polaroid').each(function(i, ele){
+
+        $(this).click(function(){
+          $(carouselItems).removeClass("active");
+
+          $(carouselItems[i]).addClass("active");
+
+        });
+
+      });
+    };
+    
 </script>
 <div class="">  
   <div class="header">
@@ -37,7 +43,6 @@
 	      <%= render :partial => "polaroid_main", :collection => @images %>
 
 	    </div>
-	      <%= will_paginate @images %>
   </ul>
 
   <div class="modal hide" id="myModal">
@@ -51,8 +56,9 @@
       <div id="myCarousel" class="carousel slide">
         <!-- Carousel items -->
         <div class="carousel-inner">
-          <% @image_load.each_with_index do |image, index| %>
+          <% @images.each_with_index do |image, index| %>
               <div class="item">
+                <% puts @images %>
                 <%= link_to(image_tag(image.img_standard_url), "#") %>
                 <div class="carousel-caption">
                   <h4><i>@<%="#{image.photographer}" %></i>: <%= "#{image.caption_text}"%></h4>
