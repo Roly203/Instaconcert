@@ -1,7 +1,7 @@
 require 'csv'
 
 
-CSV.foreach('/users/student/dev/scratch/Instaconcert/db/migrate/eventgroup-name.csv', :headers => true ) do |row|
+CSV.foreach('eventgroup-name.csv', :headers => true ) do |row|
   
   if !Eventgroup.find_by_name(row[0])
     eg = Eventgroup.new

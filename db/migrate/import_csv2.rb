@@ -2,7 +2,7 @@ require 'geocoder'
 require 'csv'
 
 
-CSV.foreach('/users/adampumm/dev/Instaconcert/db/migrate/new_db.csv', :headers => true ) do |row|
+CSV.foreach('new_db.csv', :headers => true ) do |row|
   a = Event.new 
   a.name = row[2] + "'s " + row[0] 
 
