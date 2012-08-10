@@ -12,7 +12,11 @@ require 'csv'
 
 CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/new_db.csv", :headers => true ) do |row|
   a = Event.new 
-  a.name = row[2] + "'s " + row[0] 
+  if row[2].include? 'Men' || row[2].include? 'men' then
+    a.name = row[2] + "'s " + row[0] 
+  else
+    a.name = row[0]
+  end
 
   if row[4].include? 'Aug' then
     a.min_timestamp = DateTime.new(2012,8,row[4][0,2].to_i,row[5][0,2].to_i,row[5][3,4].to_i,00).to_i
@@ -47,7 +51,7 @@ CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/eventgroup-name.c
   end
   
   Event.where(:name => row[1]).each do |event|
-    event.eventgroup_id = Eventgroup.find_by_name(row[0]).id
+    event.eventgroup_id = eg.id
     event.save
   end
 end
