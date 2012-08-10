@@ -32,6 +32,10 @@ CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/new_db.csv", :hea
   a.lat = row[9]
   a.long = row[10]
   a.distance = row[11]
+  
+  if a.max_timestamp < DateTime.now.to_i
+    a.fill_images
+  end
   a.save
 
 end
@@ -49,11 +53,3 @@ CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/eventgroup-name.c
     event.save
   end
 end
-
-
-    Image.destroy_all
-    Event.all do |ev|
-      if ev.max_timestamp < DateTime.now.to_i
-        ev.fill_images
-      end
-    end
