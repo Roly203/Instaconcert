@@ -10,7 +10,7 @@ require 'geocoder'
 require 'csv'
 
 
-CSV.foreach('#{RAILS_ROOT}/lib/data/migrate/new_db.csv', :headers => true ) do |row|
+CSV.foreach('#{ENV['OPENSHIFT_GEAR_DIR']}/lib/data/migrate/new_db.csv', :headers => true ) do |row|
   a = Event.new 
   a.name = row[2] + "'s " + row[0] 
 
@@ -36,7 +36,7 @@ CSV.foreach('#{RAILS_ROOT}/lib/data/migrate/new_db.csv', :headers => true ) do |
 
 end
 
-CSV.foreach('#{RAILS_ROOT}/lib/data/eventgroup-name.csv', :headers => true ) do |row|
+CSV.foreach('#{ENV['OPENSHIFT_GEAR_DIR']}/lib/data/eventgroup-name.csv', :headers => true ) do |row|
   
   if !Eventgroup.find_by_name(row[0])
     eg = Eventgroup.new
