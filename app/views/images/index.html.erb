@@ -34,7 +34,7 @@
     <h2>Click categories above to browse by sport.</h2>
   </div>
   <div class="subheader">
-    Last updated: <%= @images.order('img_time DESC')[0].img_time %> <!-- fix this because it's not real -->
+    Last updated: <%= @images.first.img_time %> <!-- fix this because it's not real -->
   </div>
 
   <br>
