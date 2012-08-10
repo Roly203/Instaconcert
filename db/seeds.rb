@@ -12,7 +12,7 @@ require 'csv'
 
 CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/new_db.csv", :headers => true ) do |row|
   a = Event.new 
-  if row[2].include? 'Men' || row[2].include? 'men' then
+  if (row[2].include? 'Men') || (row[2].include? 'men') then
     a.name = row[2] + "'s " + row[0] 
   else
     a.name = row[0]
