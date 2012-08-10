@@ -42,7 +42,7 @@ class Event < ActiveRecord::Base
       instagram_image_array.each_with_index do |img, i|
         new_img = Image.new
         new_img.fill_image(img)
-        new_img[:event_id] = self.id
+        new_img.event_id = self.id
         new_img.save
                           
         #this is broken                
