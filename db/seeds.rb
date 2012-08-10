@@ -43,11 +43,13 @@ CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/eventgroup-name.c
   if !Eventgroup.find_by_name(row[0])
     eg = Eventgroup.new
     eg.name = row[0]
+
+    Event.where(:name => row[1]).each do |event|
+      event.eventgroup_id = eg.id
+      event.save
+    end
     eg.save
   end
   
-  Event.where(:name => row[1]).each do |event|
-    event.eventgroup_id = eg.id
-    event.save
-  end
+
 end
