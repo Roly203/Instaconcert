@@ -24,7 +24,7 @@ CSV.foreach("#{ENV['OPENSHIFT_GEAR_DIR']}runtime/repo/lib/data/new_db.csv", :hea
     a.start_time  = DateTime.new(2012,7,row[4][0,2].to_i,row[5][0,2].to_i,row[5][3,4].to_i,00)
   end  
   
-  a.details = row[2] + row[1]
+  a.details = row[1]
   a.venue_name = row[8]
   #sleep(1)
   #a.lat = Geocoder.coordinates(a.venue_name)[0]
