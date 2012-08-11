@@ -1,15 +1,9 @@
 <script type="text/javascript" charset="utf-8">
-    $(function() {
-        $("img.lazy").lazyload();
-        $('.carousel').carousel({
-          interval: 15000
-        });
-
-        
-    });
-
-
     $(document).ready(function(){
+      $("img.lazy").lazyload();
+      $('.carousel').carousel({
+        interval: 15000
+      });
       galleryClicks();
     });
 
