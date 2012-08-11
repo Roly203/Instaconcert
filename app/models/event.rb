@@ -13,7 +13,7 @@ class Event < ActiveRecord::Base
 	end
 	
 	def interval_count
-	  return 20
+	  return 10
   end
 	
 	
