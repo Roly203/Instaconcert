@@ -1,0 +1,12 @@
+#!/bin/bash
+
+CURRENT_MINUTE=$(date +%M)
+
+MOD=$(($CURRENT_MINUTE % 15))
+
+if [ $MOD == 0 ]
+then
+        cd $OPENSHIFT_GEARS_DIR
+		cd instalympics/runtime/repo
+		RAILS_ENV=production rake cron
+fi
